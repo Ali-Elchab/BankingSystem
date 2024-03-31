@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BankingSystem
@@ -46,13 +40,14 @@ namespace BankingSystem
             {
                 var fName = new SqlParameter("@FirstName", first_name);
                 var lName = new SqlParameter("@LastName", last_name);
-                var fathersNameParam = new SqlParameter("@FathersName", fathers_name);
-                var mothersNameParam = new SqlParameter("@MothersName", mothers_name);
+                var fathersNameParam = new SqlParameter("@FatherName", fathers_name);
+                var mothersNameParam = new SqlParameter("@MotherName", mothers_name);
                 var placeOfBirthParam = new SqlParameter("@PlaceOfBirth", place_of_birth);
-                var idParam = new SqlParameter("@ID", id_num);
-                var dobParam = new SqlParameter("@DOB", date_of_birth);
+                var idParam = new SqlParameter("@IdNumber", id_num);
+                var dobParam = new SqlParameter("@DOB", SqlDbType.Date); 
+                dobParam.Value = date_of_birth;
 
-                context.Database.ExecuteSqlCommand("EXEC CreateClient @FirstName, @LastName, @FathersName, @MothersName, @PlaceOfBirth, @ID, @DOB",
+                context.Database.ExecuteSqlCommand("EXEC CreateClient @FirstName,  @FatherName,@LastName, @MotherName,@DOB ,@PlaceOfBirth, @IdNumber ",
                                                     fName, lName, fathersNameParam, mothersNameParam, placeOfBirthParam, idParam, dobParam);
 
                 MessageBox.Show("Client created successfully.");

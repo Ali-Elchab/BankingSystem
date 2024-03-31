@@ -15,7 +15,7 @@ namespace BankingSystem
             InitializeComponent();
             navigationStack = new NavigationStack();
             context = new BankingSystemDBEntities();
-            dob.Value = new DateTime(1990, 1, 1);
+            dob.Value = new DateTime(1900, 1, 1);
             UpdateClientsList();
         }
 
@@ -70,7 +70,7 @@ namespace BankingSystem
                          (string.IsNullOrEmpty(last_name) || c.LastName == last_name) &&
                          (string.IsNullOrEmpty(fathers_name) || c.FatherName == fathers_name) &&
                          (string.IsNullOrEmpty(place_of_birth) || c.PlaceOfBirth == place_of_birth) &&
-                        (date_of_birth.Date == new DateTime(1990, 1, 1) || DbFunctions.TruncateTime(c.DOB) == date_of_birth.Date)
+                        (date_of_birth.Date == new DateTime(1900, 1, 1) || DbFunctions.TruncateTime(c.DOB) == date_of_birth.Date)
                 );
             }
 
@@ -89,20 +89,15 @@ namespace BankingSystem
             clientsList.DataSource = searchResult;
         }
 
-        private void ShowClientDetails(int rowIndex)
-        {
-            DataGridViewRow selectedRow = clientsList.Rows[rowIndex];
-            int clientId = (int)selectedRow.Cells["ClientID"].Value;
-            ClientDetailsForm clientDetailsForm = new ClientDetailsForm(clientId);
-            navigationStack.Push(clientDetailsForm);
-            clientDetailsForm.ShowDialog();
-        }
-
         private void clientsList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                ShowClientDetails(e.RowIndex);
+                DataGridViewRow selectedRow = clientsList.Rows[e.RowIndex];
+                int clientId = (int)selectedRow.Cells["ClientID"].Value;
+                ClientDetailsForm clientDetailsForm = new ClientDetailsForm(clientId);
+                navigationStack.Push(clientDetailsForm);
+                clientDetailsForm.ShowDialog();
             }
         }
 
@@ -110,7 +105,7 @@ namespace BankingSystem
         {
             AddClientForm addClient = new AddClientForm();
             addClient.ShowDialog();
-
+            UpdateClientsList();
         }
     }
 }

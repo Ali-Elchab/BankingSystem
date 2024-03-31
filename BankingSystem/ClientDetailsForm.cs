@@ -111,13 +111,10 @@ namespace BankingSystem
         {
             if (e.Button == MouseButtons.Right)
             {
-                // Select the row under the mouse pointer
                 DataGridView.HitTestInfo hitTestInfo = accounts.HitTest(e.X, e.Y);
                 if (hitTestInfo.RowIndex >= 0)
                 {
                     accounts.Rows[hitTestInfo.RowIndex].Selected = true;
-
-                    // Display the ContextMenuStrip at the clicked location
                     accounts.ContextMenuStrip.Show(accounts, e.Location);
                 }
             }
