@@ -1,0 +1,7 @@
+![add](https://github.com/Ali-Elchab/BankingSystem/assets/106644215/e4dce7ae-f79b-4b4e-a354-3de886a2d339)
+![search](https://github.com/Ali-Elchab/BankingSystem/assets/106644215/69253c59-f298-4110-83c8-18290b68a78e)
+![main](https://github.com/Ali-Elchab/BankingSystem/assets/106644215/1c4deba7-fa01-4db0-bfa0-3849fc3286d7)
+![login](https://github.com/Ali-Elchab/BankingSystem/assets/106644215/b273308a-3f02-42ef-b0fb-67137c962bf1)
+![history](https://github.com/Ali-Elchab/BankingSystem/assets/106644215/251e7bbf-0e2e-4d7f-bd98-a7aed2054392)
+![details](https://github.com/Ali-Elchab/BankingSystem/assets/106644215/70c2a969-4964-4b1d-949c-23696b53c3f7)
+![deposit](https://github.com/Ali-Elchab/BankingSystem/assets/106644215/f444a1a6-3fba-47d8-903c-136d35f7612d)
